@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>HELLOW SYSTEM ADMIN!</h1>
+
+            <div class="loginButtonL">
+                <a href="DB/Headquarter.jsp"><button id="loginButton" type="button">Headquater</button></a>
+            </div>
+            <div class="loginButtonL">
+                <button id="loginButton" type="button">engineer</button>
+            </div>
+            <div class="loginButtonL">
+                <button id="loginButton" type="button">line</button>
+            </div>
+            <div class="loginButtonL">
+                <button id="loginButton" type="button">station</button>
+            </div>
+            <div class="loginButtonL">
+                <button id="loginButton" type="button">train</button>
+            </div>
+            <div class="loginButtonR">
+                <button id="loginButton" type="button">traincode</button>
+            </div>
+            <div class="loginButtonR">
+                <button id="loginButton" type="button">vehicle</button>
+            </div>
+            <div class="loginButtonR">
+                <button id="loginButton" type="button">connect</button>
+            </div>
+            <div class="loginButtonR">
+                <button id="loginButton" type="button">user</button>
+            </div>
+            <div class="loginButtonR">
+                <button id="loginButton" type="button">통계보기</button>
+            </div>
+            
+</body>
+</html>

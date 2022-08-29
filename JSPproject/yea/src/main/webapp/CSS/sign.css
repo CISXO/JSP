@@ -1,0 +1,91 @@
+body {
+    background-color: #d7dff7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.signSection {
+    width: 500px;
+    height: 480px;
+    background-color: #f7f7f7;
+    border-radius: 30px;
+    padding: 20px 50px 20px 50px;
+}
+
+.signTitle {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.loginLinkBox {
+    margin-top: 0;
+    text-align: center;
+}
+
+.loginLinkBox a {
+    text-decoration: none;
+    color: #4d5afe;
+    cursor: pointer;
+}
+
+
+.signButton {
+    color: white;
+    background-color: #4c59fd;
+}
+
+.formControl {
+    width: 480px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.formControl.success input {
+    border-color: #2ecc71;
+}
+
+.formControl.error input {
+    border-color: #e74c3c;
+}
+
+.formControl small {
+    color: #e74c3c;
+    position: absolute;
+    top: 1;
+    left: 0;
+    visibility: hidden;
+}
+
+.formControl.error small {
+    visibility: visible;
+}
+
+input {
+    width: 100%;
+    padding: 13px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    /* border-bottom: 1px solid var(--gray-border); */
+    font-size: 18px;
+    outline: none;
+}
+
+.signButtonBox {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#signButton {
+    width: 500px;
+    height: 50px;
+    color: #fff;
+    background: #4d5afe;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}

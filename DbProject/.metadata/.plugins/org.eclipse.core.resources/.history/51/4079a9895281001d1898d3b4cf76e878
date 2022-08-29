@@ -1,0 +1,138 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<style>
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+}
+
+</style>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head><%
+
+Class.forName("org.mariadb.jdbc.Driver");
+String jdbcDriver = "jdbc:mariadb://localhost:3306/homework";
+String dbUser = "root";
+String dbPass = "22489612up!";
+
+
+Connection conn = null;
+Statement stmt = null;
+ResultSet result = null;
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	stmt = conn.createStatement();
+	String query = "SELECT * FROM operation";
+	result = stmt.executeQuery(query);
+	String user_id = (String) session.getAttribute("user_id");
+%>
+
+<body style="background-color: #edf2f9 !important;">
+    <div><p>operation 자신과 관련된 데이터만 관리함. 섹션에서 유저 아이디 받아와서 자신 데이터만 관리 
+      운행 기록 생성 업데이트 삭제 + 모든 운행 한눈에 보기 기능(바로 그냥 띄어줌 )</p>
+        <h1 class="title">기관사</h1>
+        <h4 class="titleScript">
+				운행관리
+        </h4>
+        <div>
+                <table border = "1">
+                    <thead class="table-primary">
+                        <tr>
+                        <td>ID</td>
+                        <td>DeptStatus</td>
+                        <td>ArvStatus</td>
+                        <td>UpdateTime</td>
+                        <td>Engineer_ID</td>
+                        <td>TrainCode_ID</td>
+                        <td>Train_ID</td>
+                        </tr>
+                    </thead>
+                    <%
+                    while(result.next()) {
+                    %>
+                    <tbody>
+                        <tr onclick="trClick(this)">
+                        	<td><%=result.getInt("ID")%></td>
+                            <td><%=result.getString("DeptStatus")%></td>
+                            <td><%=result.getString("ArvStatus")%></td>
+                            <td><%=result.getString("UpdateTime")%></td>
+                            <td><%=result.getString("Engineer_ID")%></td>
+                            <td><%=result.getInt("TrainCode_ID") %></td>
+                            <td><%=result.getInt("Train_ID") %></td>
+                        </tr>
+                   
+                    </tbody>
+                    <%} %>
+                </table>
+        </div>
+        <form action ="master_engineer_manage.jsp" method="get" style="width:300px; float:left;">
+        <h4>Insert</h4>
+        <div class="row">
+        <input id="DeptStatus" name="DeptStatus" type="text" placeHolder="DeptStatus">
+        </div>
+        <div class="row">
+        <input name="ArvStatus" type="text" placeHolder="ArvStatus">
+        </div>
+        <div class="row">
+        <input name="UpdateTime" type="text" placeHolder="UpdateTime">
+        </div>
+        <div class="row">
+        <input name="Engineer_ID" type="text" placeHolder="Engineer_ID">
+        </div>
+        <div class="row">
+        <input name="TrainCode_ID" type="text" placeHolder="TrainCode_ID">
+        </div>
+        <div class="row">
+        <input name="Train_ID" type="text" placeHolder="Train_ID">
+        </div>
+        <div>
+        <button id="insert_button1" type = "submit" style="background-color: #4c59fd">insert</button>
+        </div>
+        <input name="manage_num" type="hidden" value="1">
+        </form>
+        
+        <form action="master_engineer_manage.jsp" method="get" style="width:300px; float:left;">
+         <h4>Update</h4>
+        <p>update할 아이디를 입력하세요!</p>
+       <div class="row">
+        <input name="masterupdate_id" type="text" placeHolder="id">
+        </div>
+        <div>
+        <button id="update_button1" type = "submit" style="background-color: #4c59fd">update</button>
+        </div>
+        <input name="manage_num" type="hidden" value="2">
+        </form>
+        
+        <form id="Head_delete" action="master_engineer_manage.jsp" method="get" style="width:300px; float:left;">
+        <h4>Delete</h4>
+        <p>delete할 아이디를 입력하세요!</p>
+        <div class="row">
+        <input name="masterdelete_id" type="text" placeHolder="id">
+        </div>
+        <div>
+        <button id="delete_button1" type = "submit" style="background-color: #4c59fd">delete</button>
+        </div>
+        <br><br><br><br> <br><br><br><br>
+        <input name="manage_num" type="hidden" value="3">
+        </form>
+        
+           <iframe src="db_stats.jsp"frameborder="1" scrolling="no"></frame>
+    </div>
+ 
+    
+<%
+	result.close();
+	stmt.close();
+	conn.close();
+} catch(SQLException e) {
+	out.println("err."+e.toString());
+}
+	%>
+</body>
+</html>

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+    /* background-color: #f5edff; */
+    background-color: #eaedf1;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.writeSection {
+    width: 800px;
+    height: 720px;
+    /* background-color: #f7f7f7; */
+    /* background-color: #d7dff7; */
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px 55px 20px 55px;
+    margin-top: 50px;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+
+
+
+.writeTitle {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.titleBox h2 {
+    margin: 0 0 5px 0;
+}
+
+.title {
+    width: 99%;
+    height: 35px;
+    border: 2px solid lightgray;
+}
+
+.contentBox h2 {
+    margin-bottom: 5px;
+}
+
+.content {
+    width: 99%;
+    height: 430px;
+    border: 2px solid lightgray;
+}
+
+input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+}
+
+.linkButton {
+    text-decoration: none;
+    width: 90px;
+    height: 40px;
+    margin: 0;
+    color: white;
+    background: gray;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.linkButton:hover {
+    color: gray;
+    background-color: lightgray;
+}
+
+#submitButton {
+    float: right;
+    width: 90px;
+    height: 40px;
+    color: #fff;
+    background: #4d5afe;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+/* .titleBox small {
+    padding-left: 15px;
+    line-height: 40px;
+    color: #e74c3c;
+    visibility: hidden; 
+}
+
+.titleBox.error small {
+    visibility: visible;
+}
+
+.titleBox.success small {
+    visibility: visible;
+    color: #2ecc71;
+} */

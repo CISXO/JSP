@@ -1,0 +1,9 @@
+const indexNum = document.getElementById("indexNum");
+const goView = document.getElementById("goView");
+
+function trClick(tr) {
+	console.log(tr.rowIndex);
+	console.log(typeof(tr.rowIndex));
+	//indexNum.setAttribute("value", tr.rowIndex);
+	//goView.submit();
+}

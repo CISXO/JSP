@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+}
+
+.headerColor {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background-color: #def0ff;
+    z-index: -1;
+}
+
+.boardSection {
+    margin-top: 70px;
+}
+
+.title {
+    text-align: center;
+    font-size: 70px;
+    padding-bottom: 10px;
+}
+
+.titleScript {
+    text-align: center;
+    font-size: 30px;
+}
+
+.tableSection {
+    margin-top: 100px;
+    width: 1000px;
+}
+
+.tableBox {
+    background-color: white;
+}
+
+.table>thead>tr>th {
+    border-bottom-color: red !important;
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.writingButton {
+    text-decoration: none;
+    width: 90px;
+    height: 35px;
+    margin: 0px 10px;
+    color: #fff;
+    background: #166caa;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 33px;
+    cursor: pointer;
+}
+
+.writingButton:hover {
+    color: white;
+}
+
+.boardTable {
+    text-align: center;
+}
+
+.boardTable thead {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+thead td:nth-child(1) {
+    width: 50%;
+}
+
+thead td:nth-child(2) {
+    width: 10%;
+}
+
+thead td:nth-child(3) {
+    width: 15%;
+}
+
+thead td:nth-child(4) {
+    width: 10%;
+}
+
+tbody td:hover {
+    cursor: pointer;
+}

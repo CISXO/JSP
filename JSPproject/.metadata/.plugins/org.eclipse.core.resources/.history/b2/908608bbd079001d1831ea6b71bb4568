@@ -1,0 +1,4 @@
+
+function trClick(tr) {
+	console.log(tr.rowIndex);
+}

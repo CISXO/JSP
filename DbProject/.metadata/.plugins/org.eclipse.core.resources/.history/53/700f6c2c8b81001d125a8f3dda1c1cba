@@ -1,0 +1,181 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<style>
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+}
+
+</style>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head><%
+
+Class.forName("org.mariadb.jdbc.Driver");
+String jdbcDriver = "jdbc:mariadb://localhost:3306/homework";
+String dbUser = "root";
+String dbPass = "22489612up!";
+
+
+Connection conn = null;
+Statement stmt = null;
+ResultSet result = null;
+
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	stmt = conn.createStatement();
+	String query = "SELECT * FROM headquarter";
+	result = stmt.executeQuery(query);
+	int checc = result.getParameter("searchText");
+	int check=0;
+%>
+
+<body style="background-color: #edf2f9 !important;">
+    <div>
+        <h1>Headquarter</h1>
+        <h4>
+				show your Headquarter
+        </h4>
+        <div>
+                <table border = "1">
+                    <thead>
+                        <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Planet</td>
+                        <td>Continent</td>
+                        <td>ManagerName</td>
+                        <td>Budget</td>
+                        </tr>
+                    </thead>
+                    <%
+                    while(result.next()) {
+                    	if(check==0){
+                    %>
+                    <tbody>
+                        <tr onclick="trClick(this)">
+                        	<td><%=result.getInt("ID")%></td>
+                            <td><%=result.getString("Name")%></td>
+                            <td><%=result.getString("Planet")%></td>
+                            <td><%=result.getString("Continent")%></td>
+                            <td><%=result.getString("ManagerName")%></td>
+                            <td><%=result.getInt("Budget") %></td>
+                        </tr>
+                   
+                    </tbody>
+                    <%} else if(check==1) {
+                    	
+                    	%>
+                        <tbody>
+                            <tr onclick="trClick(this)">
+                            	<td><%=result.getInt("ID")%></td>
+                                <td><%=result.getString("Name")%></td>
+                                <td><%=result.getString("Planet")%></td>
+                                <td><%=result.getString("Continent")%></td>
+                                <td><%=result.getString("ManagerName")%></td>
+                                <td><%=result.getInt("Budget") %></td>
+                            </tr>
+                       
+                        </tbody>
+                        <%
+                    }
+                    	} %>
+                </table>
+        </div>
+        <form id="Head_insert" action ="./manage/Head_manage.jsp" method="get">
+        <h4>Insert</h4>
+        <div class="row">
+        <input id="Name1" name="Name1" type="text" placeHolder="Name">
+        </div>
+        <div class="row">
+      <select name="Planet1">
+        <option>Mars</option>
+        <option>Earth</option>
+        <option>Mercury</option>
+        <option>Venus</option>
+        <option>Saturn</option>
+      </select>
+        </div>
+        <div class="row">
+        
+      <select name="Continent1">
+        <option>Asia</option>
+        <option>Africa</option>
+        <option>America</option>
+        <option>Europe</option>
+        <option>Oceania</option>
+      </select>
+        </div>
+        <div class="row">
+        <input id="ManagerName1" name="ManagerName1" type="text" placeHolder="ManagerName">
+        </div>
+        <div class="row">
+        <input id="Budget1" name="Budget1" type="text" placeHolder="Budget">
+        </div>
+        <div class="hd_insert_button">
+        <button id="insert_button1" type = "submit" style="background-color: #4c59fd">insert</button>
+        </div>
+        <input name="manage_num" type="hidden" value="1">
+        </form>
+        
+        <form id="Head_update" action="./manage/Head_manage.jsp" method="get">
+         <h4>Update</h4>
+        <p>update할 아이디를 입력하세요!</p>
+       <div class="row">
+        <input id="head_id" name="headupdate_id" type="text" placeHolder="id">
+        </div>
+       <div class="row">
+      <select name="select">
+        <option>Name</option>
+        <option>Planet</option>
+        <option>Continent</option>
+        <option>ManagerName</option>
+        <option>Budget</option>
+      </select>
+        </div>
+       <div class="row">
+        <input id="head_id" name="update" type="text" placeHolder="수정값">
+        </div>
+        <div>
+        <button id="update_button1" type = "submit" style="background-color: #4c59fd">update</button>
+        </div>
+        <input name="manage_num" type="hidden" value="2">
+        </form>
+        
+        <form id="Head_delete" action="./manage/Head_manage.jsp" method="get">
+        <h4>Delete</h4>
+        <p>delete할 아이디를 입력하세요!</p>
+        <div class="row">
+        <input id="head_id" name="headdelete_id" type="text" placeHolder="id">
+        </div>
+        <div>
+        <button id="delete_button1" type = "submit" style="background-color: #4c59fd">delete</button>
+        </div>
+        <input name="manage_num" type="hidden" value="3">
+        </form>
+        
+        <form action="../Sys_admin.jsp" method="get">
+        <h4>목록으로 이동하기!</h4>
+        <div>
+        <button>목록</button>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        </form>
+    </div>
+<%
+	result.close();
+	stmt.close();
+	conn.close();
+} catch(SQLException e) {
+	response.sendRedirect("Headquarter.jsp");
+	out.println("err."+e.toString());
+}
+	%>
+</body>
+</html>

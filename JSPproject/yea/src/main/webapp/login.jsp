@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/login.css">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="loginSection">
+        <h1 class="loginTitle">LOGIN</h1>
+        <h4 class="loginGuide">
+            로그인하여 다양한 사람들의 이야기를 읽어보세요!
+        </h4>
+        <form class="loginForm" action="login_result.jsp" method = "get">
+            <div class="idBox">
+                <input id="id" type="text" name="id" autocomplete="off" required>
+                <label for="id">ID</label>
+            </div>
+            <div class="pwBox">
+                <input id="pw" type="password" name="pw" autocomplete="off" required>
+                <label for="pw">PASSWORD</label>
+            </div>
+            <div class="loginButtonBox">
+                <button id="loginButton" type="submit">LOGIN</button>
+            </div>
+        </form>
+        <div class="subBox">
+            <p>계정이 없으신가요?
+                <a href="signup.jsp">Create Account!</a>
+            </p>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="JS/login.js"></script>
+</body>
+
+</html>

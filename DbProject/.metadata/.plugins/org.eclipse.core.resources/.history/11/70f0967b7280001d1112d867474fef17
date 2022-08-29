@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+Class.forName("org.mariadb.jdbc.Driver");
+String jdbcDriver = "jdbc:mariadb://localhost:3306/homework";
+String dbUser = "root";
+String dbPass = "22489612up!";
+String query = "SELECT * FROM headquarter";
+
+Connection conn = null;
+Statement stmt = null;
+ResultSet result = null;
+
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	stmt = conn.createStatement();
+	result = stmt.executeQuery(query);
+	
+String getName = request.getParameter("Name1");
+String getPlanet = request.getParameter("Planet1");
+String getContinent = request.getParameter("Continent1");
+String getManagerName = request.getParameter("ManagerName1");
+int getBudget = Integer.parseInt(request.getParameter("Budget1"));
+int manage_num = Integer.parseInt(request.getParameter("manage_num"));
+String value = null;
+if(manage_num==1){
+value="INSERT INTO Headquarter (Name, Planet, Continent, ManagerName, Budget) VALUES ('"+ getName +"', '"+ getPlanet +"', '"+ getContinent +"','"+ getManagerName +"','"+ getBudget +"');";
+} else if(manage_num==2){
+	value="";
+} else if(manage_num==3){
+	value="";
+}
+stmt.executeUpdate(value);
+String redirect = "Headquarter.jsp";
+response.sendRedirect(redirect);
+	result.close();
+	stmt.close();
+	conn.close();
+} catch(SQLException e) {
+	out.println("err."+e.toString());
+}
+%>
+</body>
+</html>

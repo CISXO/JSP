@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+  <head>
+  <%
+Class.forName("org.mariadb.jdbc.Driver");
+String jdbcDriver = "jdbc:mariadb://localhost:3306/homework";
+String dbUser = "root";
+String dbPass = "22489612up!";
+String query = "select count(*) as head from headquarter;";
+String query2= "select count(*) as line from line;";
+
+Connection conn = null;
+Statement stmt = null;
+ResultSet result = null;
+
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	stmt = conn.createStatement();
+	result = stmt.executeQuery(query);
+	String head = result.getString("head");
+	result= stmt.executeQuery(query2);
+	String line = result.getString("line");
+	%>
+  
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['name', 'score'],
+          ['繹熱',     <%=head%>],
+          ['艙��',      <%=line%>],
+          ['翕熱',      8],
+          ['團雖',      7],
+          ['望翕',      6],
+        ]);
+
+        var options = {
+          title: 'db 鱔啗'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script><%
+    	result.close();
+	stmt.close();
+	conn.close();
+} catch(SQLException e) {
+	out.println("err."+e.toString());
+}%>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%session.setAttribute("checkee", 2); %>
+<h1>검색 기능을 완성하라 그럼 끝</h1>
+ <form action="Headquarter.jsp" method="get" style="float:left;">
+       <div class="row">
+      <select name="select">
+        <option>Headquarter</option>
+      </select>
+       <div class="row">
+      <select name="search">
+        <option>Mars</option>
+        <option>Earth</option>
+        <option>Mercury</option>
+        <option>Venus</option>
+        <option>Saturn</option>
+      </select>
+        <input name="checkcheck" type="hidden" placeHolder="검색할 값" value="2">
+        </div>
+      <button>검색하기!</button>
+        </div>
+        </form>
+        <br><br><br>
+        
+         <form action="line.jsp" method="get" style="float:left;">
+       <div class="row">
+      <select name="select">
+        <option>line</option>
+      </select>
+       <div class="row">
+      <select name="search">
+        <option>red</option>
+        <option>blue</option>
+        <option>yellow</option>
+        <option>puple</option>
+        <option>white</option>
+      </select>
+        <input name="checkcheck" type="hidden" placeHolder="검색할 값" value="2">
+        </div>
+      <button>검색하기!</button>
+        </div>
+        </form>
+        
+        
+        <br><br><br>
+         <form action="station.jsp" method="get" style="float:left;">
+       <div class="row">
+      <select name="select">
+        <option>station</option>
+      </select>
+       <div class="row">
+      <select name="search">
+        <option>Michle</option>
+        <option>Jo</option>
+        <option>Jk122</option>
+        <option>brok</option>
+      </select>
+        <input name="checkcheck" type="hidden" placeHolder="검색할 값" value="2">
+        </div>
+      <button>검색하기!</button>
+        </div>
+        </form>
+        
+        
+        <br><br><br>
+         <form action="train.jsp" method="get" style="float:left;">
+       <div class="row">
+      <select name="select">
+        <option>train</option>
+      </select>
+       <div class="row">
+      <select name="search">
+        <option>S</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+        <option>F</option>
+      </select>
+        <input name="checkcheck" type="hidden" placeHolder="검색할 값" value="2">
+        </div>
+      <button>검색하기!</button>
+        </div>
+        </form>
+        
+        <br><br><br>
+        
+         <form action="traincode.jsp" method="get" style="float:left;">
+       <div class="row">
+      <select name="select">
+        <option>traincode</option>
+      </select>
+       <div class="row">
+      <select name="search">
+        <option>ParisStation</option>
+        <option>KoreaStation</option>
+        <option>MarsStation</option>
+        <option>IndianoStation</option>
+        <option>VenusStation</option>
+        <option>AmericaStation</option>
+      </select>
+        <input name="checkcheck" type="hidden" placeHolder="검색할 값" value="2">
+        </div>
+      <button>검색하기!</button>
+        </div>
+        </form>
+        
+        
+        <br><br><br>
+         <form action="vehicle.jsp" method="get" style="float:left;">
+       <div class="row">
+      <select name="select">
+        <option>vehicle</option>
+      </select>
+       <div class="row">
+      <select name="search">
+        <option>cargo</option>
+        <option>career</option>
+        <option>Decorate</option>
+      </select>
+        <input name="checkcheck" type="hidden" placeHolder="검색할 값" value="2">
+        </div>
+      <button>검색하기!</button>
+        </div>
+        </form>
+        
+        <br><br><br>
+        
+</body>
+</html>

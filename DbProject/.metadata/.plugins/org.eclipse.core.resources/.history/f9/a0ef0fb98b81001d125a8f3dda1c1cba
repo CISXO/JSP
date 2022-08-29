@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+Class.forName("org.mariadb.jdbc.Driver");
+String jdbcDriver = "jdbc:mariadb://localhost:3306/homework";
+String dbUser = "root";
+String dbPass = "22489612up!";
+String searchField = request.getParameter("select");
+String searchText = request.getParameter("searchText");
+String query ="select * from "+ searchField +"";
+
+Connection conn = null;
+Statement stmt = null;
+ResultSet result = null;
+
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	stmt = conn.createStatement();
+	result = stmt.executeQuery(query);
+	if(searchText != null && !searchText.equals("") ){
+        query +=" LIKE '%"+searchText.trim()+"%' order by bbsID desc limit 10";
+	}
+        PreparedStatement pstmt=conn.prepareStatement(query);
+		result=pstmt.executeQuery();
+        %><table border = "1">
+                    <%
+                    while(result.next()) {
+                    %>
+                    <tbody>
+                        <tr onclick="trClick(this)">
+                        	<td><%=result.getInt("1")%></td>
+                            <td><%=result.getString("2")%></td>
+                            <td><%=result.getString("3")%></td>
+                            <td><%=result.getString("4")%></td>
+                            <td><%=result.getString("5")%></td>
+                            <td><%=result.getInt("6") %></td>
+                        </tr>
+                   
+                    </tbody>
+                    <%} %>
+                </table><%
+	result.close();
+	stmt.close();
+	conn.close();
+} catch(SQLException e) {
+}
+%>
+</body>
+</html>

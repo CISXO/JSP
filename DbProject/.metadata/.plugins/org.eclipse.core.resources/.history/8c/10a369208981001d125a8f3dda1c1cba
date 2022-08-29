@@ -1,0 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+Class.forName("org.mariadb.jdbc.Driver");
+String jdbcDriver = "jdbc:mariadb://localhost:3306/homework";
+String dbUser = "root";
+String dbPass = "22489612up!";
+String searchField = request.getParameter("select");
+String searchText = request.getParameter("searchText");
+String query ="select * from "+ searchField +";
+
+Connection conn = null;
+Statement stmt = null;
+ResultSet result = null;
+
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	stmt = conn.createStatement();
+	result = stmt.executeQuery(query);
+	if(searchText != null && !searchText.equals("") ){
+        query +=" LIKE '%"+searchText.trim()+"%' order by bbsID desc limit 10";
+	}
+        PreparedStatement pstmt=conn.prepareStatement(query);
+		result=pstmt.executeQuery();
+        %><table border = "1">
+                    <thead>
+                        <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Planet</td>
+                        <td>Continent</td>
+                        <td>ManagerName</td>
+                        <td>Budget</td>
+                        </tr>
+                    </thead>
+                    <%
+                    while(result.next()) {
+                    %>
+                    <tbody>
+                        <tr onclick="trClick(this)">
+                        	<td><%=result.getInt("ID")%></td>
+                            <td><%=result.getString("Name")%></td>
+                            <td><%=result.getString("Planet")%></td>
+                            <td><%=result.getString("Continent")%></td>
+                            <td><%=result.getString("ManagerName")%></td>
+                            <td><%=result.getInt("Budget") %></td>
+                        </tr>
+                   
+                    </tbody>
+                    <%} %>
+                </table><%
+	result.close();
+	stmt.close();
+	conn.close();
+} catch(SQLException e) {
+}
+%>
+</body>
+</html>

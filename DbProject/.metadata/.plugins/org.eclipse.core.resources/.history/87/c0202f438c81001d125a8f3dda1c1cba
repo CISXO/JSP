@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+.loginButtonL{
+float:left;
+}
+
+.loginButtonR{
+float:left;
+
+}
+#loginButton{
+width: 360px;
+    height: 50px;
+    margin: 0px 10px;
+    color: #fff;
+    background: #166caa;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top:20px;
+}
+
+
+</style>
+</head>
+<body>
+<%
+String user_name = (String) session.getAttribute("user_name"); %>
+<h1>HELLOW <%=user_name%> SYSTEM ADMIN!</h1>
+<form id="station_update" action="DB/Headquarter.jsp" method="get">
+            <div class="loginButtonL">
+                    <input name="checkcheck" type="hidden" value="1">
+                    <button id="loginButton" type="button">Headquater</button>
+            </div>
+            </form>
+            <div class="loginButtonL">
+                <a href="DB/Engineer.jsp"><button id="loginButton" type="button">engineer</button></a>
+            </div>
+            <div class="loginButtonL">
+                <a href="DB/line.jsp"><button id="loginButton" type="button">line</button></a>
+            </div>
+            <div class="loginButtonL">
+                <a href="DB/station.jsp"><button id="loginButton" type="button">station</button></a>
+            </div>
+            <div class="loginButtonL">
+                <a href="DB/train.jsp"><button id="loginButton" type="button">train</button></a>
+            </div>
+            <div class="loginButtonR">
+                <a href="DB/traincode.jsp"><button id="loginButton" type="button">traincode</button></a>
+            </div>
+            <div class="loginButtonR">
+                <a href="DB/vehicle.jsp"><button id="loginButton" type="button">vehicle</button></a>
+            </div>
+            <div class="loginButtonR">
+                <a href="DB/connect.jsp"><button id="loginButton" type="button">connect</button></a>
+            </div>
+            <div class="loginButtonR">
+                <a href="db_stats.jsp"><button id="loginButton" type="button">통계보기</button></a>
+            </div>
+            <div class="loginButtonR">
+                <a href="DB/Search.jsp"><button id="loginButton" type="button">검색하기!!</button></a>
+            </div>
+            
+</body>
+</html>

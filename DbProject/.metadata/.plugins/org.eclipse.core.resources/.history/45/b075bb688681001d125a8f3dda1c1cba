@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>검색 기능을 완성하라 그럼 끝</h1>
+ <form action="./manage/search_manage.jsp" method="get">
+       <div class="row">
+      <select name="select">
+        <option>Headquarter</option>
+        <option>Engineer</option>
+        <option>line</option>
+        <option>station</option>
+        <option>train</option>
+        <option>traincode</option>
+        <option>vehicle</option>
+        <option>connect</option>
+      </select>
+        </div>
+        
+        </form>
+</body>
+</html>

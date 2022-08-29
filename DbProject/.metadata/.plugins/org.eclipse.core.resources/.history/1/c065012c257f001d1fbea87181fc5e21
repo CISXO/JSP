@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>HELLOW SYSTEM ADMIN!</h1>
+
+<div>
+<button>INSERT</button>
+</div>
+<div>
+<button>SELECT</button>
+</div>
+<div>
+<button>UPDATE</button>
+</div>
+<div>
+<button>DELETE</button>
+</div>
+<div>통계보기<!-- count --></div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+//const tableBody = document.getElementById("tablebody");
+//const boardTitle = 
+
+//function clickTable() {
+//	console.log("hi");
+//}
+
+
+function trClick(tr) {
+	console.log(tr.rowIndex);
+}
+
+tableTr.addEventListner("click", clickTable);

@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>
+
+String SQL ="select * from bbs WHERE "+searchField.trim();
+	      try {
+	            if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+	                SQL +=" LIKE '%"+searchText.trim()+"%' order by bbsID desc limit 10";
+	            }
+	            PreparedStatement pstmt=conn.prepareStatement(SQL);
+				rs=pstmt.executeQuery();//select
+	         while(rs.next()) {
+
+</h1>
+
+</body>
+</html>

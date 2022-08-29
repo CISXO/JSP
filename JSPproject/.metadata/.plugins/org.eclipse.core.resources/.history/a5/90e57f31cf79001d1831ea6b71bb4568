@@ -1,0 +1,9 @@
+const tableTr = document.getElementById("tablebody");
+
+
+function clickTable() {
+	console.log("hi");
+}
+
+
+tableTr.addEventListner("click", clickTable);

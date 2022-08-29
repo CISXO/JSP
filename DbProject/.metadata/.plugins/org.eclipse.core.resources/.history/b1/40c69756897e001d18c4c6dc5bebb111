@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	String user_id = (String) session.getAttribute("user_id");
+	String url = request.getHeader("referer");%>
+	<h1>hello! <%=user_id%> :) </h1>
+<input type="button" value="back" onclick="location.href='<%=url %>'">
+<%
+	System.out.println(url);
+	%>
+	
+<form action="showtable.jsp"method = "get">
+<button type="submit">show tables!</button>
+	</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<h1>Hello World!</h1>
+</div>
+	<form action="login_result.jsp"method = "get">
+	<div>
+		<label>id</label><br><input name="id" type="text"/>
+	</div>
+	<div>
+		<label>passwd</label><br><input name="passwd" type="password"/>
+		</div>
+	<button type="submit">login</button>
+	</form>
+
+</body>
+</html>

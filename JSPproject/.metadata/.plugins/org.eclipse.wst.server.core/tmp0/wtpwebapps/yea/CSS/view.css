@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #e7e6e6;
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+}
+
+.viewSection {
+    margin-top: 130px;
+}
+
+.pageTitle {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.linkButtonBox {
+    display: flex;
+}
+
+.linkButton {
+    text-decoration: none;
+    width: 82px;
+    height: 35px;
+    margin-left: 265px;
+    margin-top: 10px;
+    color: white;
+    background: gray;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 100;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.pageBody {
+    background-color: white;
+    padding: 0px 0px 40px 0px;
+    width: 600px;
+}
+
+.setLine {
+    height: 33px;
+    border-bottom: 2px solid lightgray;
+    text-align: center;
+    color: darkgray;
+    font-size: 20px;
+}
+
+.setBox {
+    padding: 15px 40px 0 40px;
+}
+
+.storyHeader {
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.user {
+    color: #0fc896;
+    font-size: 20px;
+}
+
+.date {
+    color: darkgray;
+}
+
+.storyTitle {
+    margin-bottom: 15px;
+}
+
+.story {
+    white-space: pre-line;
+    font-size: 20px;
+    min-height: 80px;
+}

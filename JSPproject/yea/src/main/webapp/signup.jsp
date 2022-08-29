@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/sign.css">
+
+    <title>Sign UP</title>
+</head>
+
+<body>
+    <div class="signSection">
+        <h1 class="signTitle">SIGN UP</h1>
+        <h4 class="loginLinkBox">이미 계정이 있습니까?
+            <a class="loginLink" href="login.jsp">로그인</a>
+        </h4>
+        <form id="signForm" action="signup_result.jsp" method="get">
+            <div id="nameForm" class="formControl">
+                <input id="name" type="text" name="name" placeholder="Name" maxlength="8">
+                <small>Error message</small>
+            </div>
+            <div id="idForm" class="formControl">
+                <input id="id" type="text" name="id" placeholder="User Id">
+                <small>Error message</small>
+            </div>
+            <div id="pwForm" class="formControl">
+                <input id="pw" type="password" name="pw" placeholder="Password">
+                <small>Error message</small>
+            </div>
+            <div id="repwForm" class="formControl">
+                <input id="pwCheck" type="password" placeholder="RePassword">
+                <small>Error message</small>
+            </div>
+            <div class="signButtonBox">
+                <button id="signButton" type="submit">가입하기</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="JS/sign.js"></script>
+</body>
+
+</html>
